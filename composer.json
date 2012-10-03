@@ -9,7 +9,7 @@
     "homepage": "https://github.com/zendframework/zend-escaper",
     "autoload": {
         "psr-4": {
-            "Zend\\Escaper": "src/"
+            "Zend\\Escaper\\": "src/"
         }
     },
     "require": {
