@@ -6,7 +6,6 @@
         "zf2",
         "escaper"
     ],
-    "homepage": "https://github.com/zendframework/zf2",
     "autoload": {
         "psr-0": {
             "Zend\\Escaper\\": ""
@@ -14,12 +13,12 @@
     },
     "target-dir": "Zend/Escaper",
     "require": {
-        "php": ">=5.3.23"
+        "php": ">=5.3.3"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3-dev",
-            "dev-develop": "2.4-dev"
+            "dev-master": "2.2-dev",
+            "dev-develop": "2.3-dev"
         }
     }
 }
