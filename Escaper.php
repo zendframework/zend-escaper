@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -146,8 +146,7 @@ class Escaper
      */
     public function escapeHtml($string)
     {
-        $result = htmlspecialchars($string, $this->htmlSpecialCharsFlags, $this->encoding);
-        return $result;
+        return htmlspecialchars($string, $this->htmlSpecialCharsFlags, $this->encoding);
     }
 
     /**
@@ -368,7 +367,6 @@ class Escaper
      */
     protected function convertEncoding($string, $to, $from)
     {
-        $result = '';
         if (function_exists('iconv')) {
             $result = iconv($from, $to, $string);
         } elseif (function_exists('mb_convert_encoding')) {
