@@ -248,7 +248,7 @@ class Escaper
          * replace it with while grabbing the integer value of the character.
          */
         if (strlen($chr) > 1) {
-            $chr = $this->convertEncoding($chr, 'UTF-16BE', 'UTF-8');
+            $chr = $this->convertEncoding($chr, 'UTF-32BE', 'UTF-8');
         }
 
         $hex = bin2hex($chr);
