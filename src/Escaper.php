@@ -297,7 +297,7 @@ class Escaper
         if (strlen($chr) == 1) {
             $ord = ord($chr);
         } else {
-            $chr = $this->convertEncoding($chr, 'UTF-16BE', 'UTF-8');
+            $chr = $this->convertEncoding($chr, 'UTF-32BE', 'UTF-8');
             $ord = hexdec(bin2hex($chr));
         }
         return sprintf('\\%X ', $ord);

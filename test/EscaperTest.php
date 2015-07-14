@@ -145,6 +145,8 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
         '&'     => '\\26 ',
         /* Characters beyond ASCII value 255 to unicode escape */
         'Ā'     => '\\100 ',
+        /* Characters beyond Unicode BMP to unicode escape */
+        "\xF0\x90\x80\x80" => '\\10000 ',
         /* Immune chars excluded */
         ','     => '\\2C ',
         '.'     => '\\2E ',
