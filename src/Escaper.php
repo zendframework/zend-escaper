@@ -43,7 +43,7 @@ class Escaper
      * Holds the value of the special flags passed as second parameter to
      * htmlspecialchars().
      *
-     * @var string
+     * @var int
      */
     protected $htmlSpecialCharsFlags;
 
