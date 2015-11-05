@@ -9,7 +9,7 @@ URL escaping applies to data being inserted into a URL and not to the whole URL 
 
 XSS attacks are easy if data inserted into URLs is not escaped properly:
 
-``` sourceCode
+```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
@@ -32,7 +32,7 @@ INPUT;
 
 By properly escaping data in URLs by using `escapeUrl`, we can prevent XSS attacks:
 
-``` sourceCode
+```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php

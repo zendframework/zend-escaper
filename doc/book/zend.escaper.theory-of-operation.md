@@ -20,7 +20,7 @@ The actual escaping of the data differs between each method, they all have their
 according to which the escaping is done. An example will allow us to clearly demonstrate the
 difference, and how the same characters are being escaped differently between contexts:
 
-``` sourceCode
+```php
 $escaper = new Zend\Escaper\Escaper('utf-8');
 
 // &lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;

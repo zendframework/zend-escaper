@@ -7,7 +7,7 @@ namely by setting the wrong flags and character encoding.
 For escaping data in the HTML Body context, use `Zend\Escaper\Escaper`'s `escapeHtml` method.
 Internally it uses PHP's `htmlspecialchars`, and additionally correctly sets the flags and encoding.
 
-``` sourceCode
+```php
 // outputting this without escaping would be a bad idea!
 $input = '<script>alert("zf2")</script>';
 
@@ -28,7 +28,7 @@ is served to the client, as it **must be the same** as the encoding used for esc
 
 An example of incorrect usage:
 
-``` sourceCode
+```php
 <?php
 $input = '<script>alert("zf2")</script>';
 $escaper = new Zend\Escaper\Escaper('utf-8');
@@ -52,7 +52,7 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
 
 An example of correct usage:
 
-``` sourceCode
+```php
 <?php
 $input = '<script>alert("zf2")</script>';
 $escaper = new Zend\Escaper\Escaper('utf-8');

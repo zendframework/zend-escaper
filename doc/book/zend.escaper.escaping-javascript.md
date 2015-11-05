@@ -20,7 +20,7 @@ special characters and entities.
 
 An example of incorrect Javascript escaping:
 
-``` sourceCode
+```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
@@ -54,7 +54,7 @@ not properly escaped for the Javascript context.
 
 By using the `escapeJs` method in the Javascript context, such attacks can be prevented:
 
-``` sourceCode
+```php
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php

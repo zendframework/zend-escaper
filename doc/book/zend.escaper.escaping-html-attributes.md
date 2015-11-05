@@ -15,7 +15,7 @@ attribute might be unquoted or quoted illegally.
 
 An example of incorrect HTML attribute escaping:
 
-``` sourceCode
+```php
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
@@ -53,7 +53,7 @@ element.
 Another example of incorrect HTML attribute escaping can happen when unquoted attributes are used,
 which is, by the way, perfectly valid HTML5:
 
-``` sourceCode
+```php
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
@@ -88,7 +88,7 @@ The above example shows how it is easy to break out from unquoted attributes in 
 
 Both of the previous examples can be avoided by simply using the `escapeHtmlAttr` method:
 
-``` sourceCode
+```php
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php

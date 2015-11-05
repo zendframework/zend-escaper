@@ -8,7 +8,7 @@ hexadecimal escapes.
 
 In most cases developers forget to escape CSS completely:
 
-``` sourceCode
+```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
@@ -39,7 +39,7 @@ attack fairly easily.
 
 By using `escapeCss` method in the CSS context, such attacks can be prevented:
 
-``` sourceCode
+```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <?php
