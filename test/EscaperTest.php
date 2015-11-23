@@ -163,6 +163,10 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
         ' '     => '\\20 ',
     ];
 
+    /**
+     * @var Escaper
+     */
+    private $escaper;
 
     public function setUp()
     {
@@ -389,5 +393,14 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
                 );
             }
         }
+    }
+
+    public function testEscapingReturnsStringIfNull()
+    {
+        $this->assertEquals('', $this->escaper->escapeHtml(null));
+        $this->assertEquals('', $this->escaper->escapeUrl(null));
+        $this->assertEquals('', $this->escaper->escapeCss(null));
+        $this->assertEquals('', $this->escaper->escapeJs(null));
+        $this->assertEquals('', $this->escaper->escapeHtmlAttr(null));
     }
 }
