@@ -41,11 +41,11 @@ More detailed examples will be given in later chapters.
 
 At present, programmers orient towards the following PHP functions for each common HTML context:
 
-> -   **HTML Body**: htmlspecialchars() or htmlentities()
-- **HTML Attribute**: htmlspecialchars() or htmlentities()
-- **Javascript**: addslashes() or json\_encode()
-- **CSS**: n/a
-- **URL/URI**: rawurlencode() or urlencode()
+* **HTML Body**: htmlspecialchars() or htmlentities()
+* **HTML Attribute**: htmlspecialchars() or htmlentities()
+* **Javascript**: addslashes() or json\_encode()
+* **CSS**: n/a
+* **URL/URI**: rawurlencode() or urlencode()
 
 In practice, these decisions appear to depend more on what PHP offers, and if it can be interpreted
 as offering sufficient escaping safety, than it does on what is recommended in reality to defend
