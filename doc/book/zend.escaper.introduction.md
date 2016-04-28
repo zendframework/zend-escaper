@@ -13,7 +13,7 @@ zendframework/zend-escaper.
 For easier use of the Escaper component within the framework itself, especially with the `Zend\View`
 component, a \[set of view helpers\](zend.view.helpers) is provided.
 
-> ## Warning
+> ### Warning
 The `Zend\Escaper` is a security related component. As such, if you believe you found an issue with
 this component, we ask that you follow our [Security Policy](http://framework.zend.com/security/)
 and report security issues accordingly. The Zend Framework team and the contributors thanks you in
