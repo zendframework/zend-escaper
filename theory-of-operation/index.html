@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Theory of Operation - zend-escaper</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-escaper</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../intro/">Intro</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Theory of Operation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-html/">Escaping HTML</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-html-attributes/">Escaping HTML Attributes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-javascript/">Escaping Javascript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-css/">Escaping CSS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-url/">Escaping URLs</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-escaper">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#theory-of-operation">Theory of Operation</a></li>
+        
+            <li><a href="#the-problem-with-inconsistent-functionality">The Problem with Inconsistent Functionality</a></li>
+        
+            <li><a href="#why-contextual-escaping">Why Contextual Escaping?</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../intro/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../configuration/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Reference &raquo;</li>
+      
+    
+  
+  <li class="active">Theory of Operation</li>
+</ol>
+
+<h1 id="theory-of-operation">Theory of Operation</h1>
+<p>zend-escaper provides methods for escaping output data, dependent on the context
+in which the data will be used. Each method is based on peer-reviewed rules and
+is in compliance with the current OWASP recommendations.</p>
+<p>The escaping follows a well-known and fixed set of encoding rules defined by
+OWASP for each key HTML context.  These rules cannot be impacted or negated by
+browser quirks or edge-case HTML parsing unless the browser suffers a
+catastrophic bug in its HTML parser or Javascript interpreter &mdash; both of
+these are unlikely.</p>
+<p>The contexts in which zend-escaper should be used are <strong>HTML Body</strong>, <strong>HTML
+Attribute</strong>, <strong>Javascript</strong>, <strong>CSS</strong>, and <strong>URL/URI</strong> contexts.</p>
+<p>Every escaper method will take the data to be escaped, make sure it is utf-8
+encoded data (or try to convert it to utf-8), perform context-based escaping,
+encode the escaped data back to its original encoding, and return the data to
+the caller.</p>
+<p>The actual escaping of the data differs between each method; they all have their
+own set of rules according to which escaping is performed. An example will allow
+us to clearly demonstrate the difference, and how the same characters are being
+escaped differently between contexts:</p>
+<pre class="codehilite"><code class="language-php">$escaper = new Zend\Escaper\Escaper('utf-8');
+
+// &amp;lt;script&amp;gt;alert(&amp;quot;zf2&amp;quot;)&amp;lt;/script&amp;gt;
+echo $escaper-&gt;escapeHtml('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+
+// &amp;lt;script&amp;gt;alert&amp;#x28;&amp;quot;zf2&amp;quot;&amp;#x29;&amp;lt;&amp;#x2F;script&amp;gt;
+echo $escaper-&gt;escapeHtmlAttr('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+
+// \x3Cscript\x3Ealert\x28\x22zf2\x22\x29\x3C\x2Fscript\x3E
+echo $escaper-&gt;escapeJs('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+
+// \3C script\3E alert\28 \22 zf2\22 \29 \3C \2F script\3E 
+echo $escaper-&gt;escapeCss('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+
+// %3Cscript%3Ealert%28%22zf2%22%29%3C%2Fscript%3E
+echo $escaper-&gt;escapeUrl('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');</code></pre>
+
+
+<p>More detailed examples will be given in later chapters.</p>
+<h2 id="the-problem-with-inconsistent-functionality">The Problem with Inconsistent Functionality</h2>
+<p>At present, programmers orient towards the following PHP functions for each
+common HTML context:</p>
+<ul>
+<li><strong>HTML Body</strong>: <code>htmlspecialchars()</code> or <code>htmlentities()</code></li>
+<li><strong>HTML Attribute</strong>: <code>htmlspecialchars()</code> or <code>htmlentities()</code></li>
+<li><strong>Javascript</strong>: <code>addslashes()</code> or <code>json_encode()</code></li>
+<li><strong>CSS</strong>: n/a</li>
+<li><strong>URL/URI</strong>: <code>rawurlencode()</code> or <code>urlencode()</code></li>
+</ul>
+<p>In practice, these decisions appear to depend more on what PHP offers, and if it
+can be interpreted as offering sufficient escaping safety, than it does on what
+is recommended in reality to defend against XSS. While these functions can
+prevent some forms of XSS, they do not cover all use cases or risks and are
+therefore insufficient defenses.</p>
+<p>Using <code>htmlspecialchars()</code> in a perfectly valid HTML5 unquoted attribute value,
+for example, is completely useless since the value can be terminated by a space
+(among other things), which is never escaped. Thus, in this instance, we have a
+conflict between a widely used HTML escaper and a modern HTML specification,
+with no specific function available to cover this use case. While it's tempting
+to blame users, or the HTML specification authors, escaping just needs to deal
+with whatever HTML and browsers allow.</p>
+<p>Using <code>addslashes()</code>, custom backslash escaping, or <code>json_encode()</code> will
+typically ignore HTML special characters such as ampersands, which may be used
+to inject entities into Javascript. Under the right circumstances, the browser
+will convert these entities into their literal equivalents before interpreting
+Javascript, thus allowing attackers to inject arbitrary code.</p>
+<p>Inconsistencies with valid HTML, insecure default parameters, lack of character
+encoding awareness, and misrepresentations of what functions are capable of by
+some programmers &mdash; these all make escaping in PHP an unnecessarily
+convoluted quest.</p>
+<p>To circumvent the lack of escaping methods in PHP, zend-escaper addresses the
+need to apply context-specific escaping in web applications. It implements
+methods that specifically target XSS and offers programmers a tool to secure
+their applications without misusing other inadequate methods, or using, most
+likely incomplete, home-grown solutions.</p>
+<h2 id="why-contextual-escaping">Why Contextual Escaping?</h2>
+<p>To understand why multiple standardised escaping methods are needed, what
+follows are several quick points; they are by no means a complete set of
+reasons, however!</p>
+<h3 id="html-escaping-of-unquoted-html-attribute-values-still-allows-xss">HTML escaping of unquoted HTML attribute values still allows XSS</h3>
+<p>This is probably the best known way to defeat <code>htmlspecialchars()</code> when used on
+attribute values, since any space (or character interpreted as a space &mdash;
+there are a lot) lets you inject new attributes whose content can't be
+neutralised by HTML escaping. The solution (where this is possible) is
+additional escaping as defined by the OWASP ESAPI codecs. The point here can be
+extended further &mdash; escaping only works if a programmer or designer knows
+what they're doing. In many contexts, there are additional practices and gotchas
+that need to be carefully monitored since escaping sometimes needs a little
+extra help to protect against XSS &mdash; even if that means ensuring all
+attribute values are properly double quoted despite this not being required for
+valid HTML.</p>
+<h3 id="html-escaping-of-css-javascript-or-uris-is-often-reversed-when-passed-to-non-html-interpreters-by-the-browser">HTML escaping of CSS, Javascript or URIs is often reversed when passed to non-HTML interpreters by the browser</h3>
+<p>HTML escaping is just that &mdsash; it's designed to escape a string for HTML
+(i.e. prevent tag or attribute insertion), but not alter the underlying meaning
+of the content, whether it be text, Javascript, CSS, or URIs. For that purpose,
+a fully HTML-escaped version of any other context may still have its unescaped
+form extracted before it's interpreted or executed. For this reason we need
+separate escapers for Javascript, CSS, and URIs, and developers or designers
+writing templates <strong>must</strong> know which escaper to apply to which context. Of
+course, this means you need to be able to identify the correct context before
+selecting the right escaper!</p>
+<h3 id="dom-based-xss-requires-a-defence-using-at-least-two-levels-of-different-escaping-in-many-cases">DOM-based XSS requires a defence using at least two levels of different escaping in many cases</h3>
+<p>DOM-based XSS has become increasingly common as Javascript has taken off in
+popularity for large scale client-side coding. A simple example is Javascript
+defined in a template which inserts a new piece of HTML text into the DOM. If
+the string is only HTML escaped, it may still contain Javascript that will
+execute in that context. If the string is only Javascript-escaped, it may
+contain HTML markup (new tags and attributes) which will be injected into the
+DOM and parsed once the inserting Javascript executes. Damned either way? The
+solution is to escape twice &mdash; first escape the string for HTML (make it
+safe for DOM insertion), and then for Javascript (make it safe for the current
+Javascript context). Nested contexts are a common means of bypassing naive
+escaping habits (e.g. you can inject Javascript into a CSS expression within an
+HTML attribute).</p>
+<h3 id="php-has-no-known-anti-xss-escape-functions-only-those-kidnapped-from-their-original-purposes">PHP has no known anti-XSS escape functions (only those kidnapped from their original purposes)</h3>
+<p>A simple example, widely used, is when you see <code>json_encode()</code> used to escape
+Javascript, or worse, some kind of mutant <code>addslashes()</code> implementation. These
+were never designed to eliminate XSS, yet PHP programmers use them as such. For
+example, <code>json_encode()</code> does not escape the ampersand or semi-colon characters
+by default. That means you can easily inject HTML entities which could then be
+decoded before the Javascript is evaluated in a HTML document. This lets you
+break out of strings, add new JS statements, close tags, etc. In other words,
+using <code>json_encode()</code> is insufficient and naive. The same, arguably, could be
+said for <code>htmlspecialchars()</code> which has its own well known limitations that make
+a singular reliance on it a questionable practice.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../intro/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../configuration/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="http://framework.zend.com/images/logos/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

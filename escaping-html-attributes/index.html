@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Escaping HTML Attributes - zend-escaper</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-escaper</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../intro/">Intro</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../theory-of-operation/">Theory of Operation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../configuration/">Configuration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-html/">Escaping HTML</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Escaping HTML Attributes</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-javascript/">Escaping Javascript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-css/">Escaping CSS</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../escaping-url/">Escaping URLs</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-escaper">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#escaping-html-attributes">Escaping HTML Attributes</a></li>
+        
+            <li><a href="#examples-of-bad-html-attribute-escaping">Examples of Bad HTML Attribute Escaping</a></li>
+        
+            <li><a href="#example-of-good-html-attribute-escaping">Example of Good HTML Attribute Escaping</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../escaping-html/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../escaping-javascript/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Reference &raquo;</li>
+      
+    
+  
+  <li class="active">Escaping HTML Attributes</li>
+</ol>
+
+<h1 id="escaping-html-attributes">Escaping HTML Attributes</h1>
+<p>Escaping data in <strong>HTML Attribute</strong> contexts is most often done incorrectly, if
+not overlooked completely by developers. Regular <a href="../escaping-html/">HTML
+escaping</a> can be used for escaping HTML attributes <em>only</em> if
+the attribute value can be <strong>guaranteed as being properly quoted</strong>! To avoid
+confusion, we recommend always using the HTML Attribute escaper method when
+dealing with HTTP attributes specifically.</p>
+<p>To escape data for an HTML Attribute, use <code>Zend\Escaper\Escaper</code>'s
+<code>escapeHtmlAttr()</code> method.  Internally it will convert the data to UTF-8, check
+for its validity, and use an extended set of characters to escape that are not
+covered by <code>htmlspecialchars()</code> to cover the cases where an attribute might be
+unquoted or quoted illegally.</p>
+<h2 id="examples-of-bad-html-attribute-escaping">Examples of Bad HTML Attribute Escaping</h2>
+<p>An example of incorrect HTML attribute escaping:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;?php
+$input = &lt;&lt;&lt;INPUT
+' onmouseover='alert(/ZF2!/);
+INPUT;
+
+/**
+ * NOTE: This is equivalent to using htmlspecialchars($input, ENT_COMPAT)
+ */
+$output = htmlspecialchars($input);
+?&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Single Quoted Attribute&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;?php 
+        // the span tag will look like:
+        // &lt;span title='' onmouseover='alert(/ZF2!/);'&gt;
+        ?&gt;
+        &lt;span title='&lt;?= $output ?&gt;'&gt;
+            What framework are you using?
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+<p>In the above example, the default <code>ENT_COMPAT</code> flag is being used, which does
+not escape single quotes, thus resulting in an alert box popping up when the
+<code>onmouseover</code> event happens on the <code>span</code> element.</p>
+<p>Another example of incorrect HTML attribute escaping can happen when unquoted
+attributes are used (which is, by the way, perfectly valid HTML5):</p>
+<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;?php
+$input = &lt;&lt;&lt;INPUT
+faketitle onmouseover=alert(/ZF2!/);
+INPUT;
+
+// Tough luck using proper flags when the title attribute is unquoted!
+$output = htmlspecialchars($input, ENT_QUOTES);
+?&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Quoteless Attribute&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;?php 
+        // the span tag will look like:
+        // &lt;span title=faketitle onmouseover=alert(/ZF2!/);&gt;
+        ?&gt;
+        &lt;span title=&lt;?= $output ?&gt;&gt;
+            What framework are you using?
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+<p>The above example shows how it is easy to break out from unquoted attributes in
+HTML5.</p>
+<h2 id="example-of-good-html-attribute-escaping">Example of Good HTML Attribute Escaping</h2>
+<p>Both of the previous examples can be avoided by simply using the
+<code>escapeHtmlAttr()</code> method:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;?php
+$input = &lt;&lt;&lt;INPUT
+faketitle onmouseover=alert(/ZF2!/);
+INPUT;
+
+$escaper = new Zend\Escaper\Escaper('utf-8');
+$output = $escaper-&gt;escapeHtmlAttr($input);
+?&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Quoteless Attribute&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;?php 
+        // the span tag will look like:
+        // &lt;span title=faketitle&amp;#x20;onmouseover&amp;#x3D;alert&amp;#x28;&amp;#x2F;ZF2&amp;#x21;&amp;#x2F;&amp;#x29;&amp;#x3B;&gt;
+        ?&gt;
+        &lt;span title=&lt;?= $output ?&gt;&gt;
+            What framework are you using?
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+<p>In the above example, the malicious input from the attacker becomes completely
+harmless as we used proper HTML attribute escaping!</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../escaping-html/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../escaping-javascript/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="http://framework.zend.com/images/logos/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>
