@@ -1,10 +1,10 @@
 # Escaping Cascading Style Sheets
 
-CSS is similar to \[Javascript\](zend.escaper.escaping-javascript) for the same reasons. CSS
-escaping excludes only basic alphanumeric characters and escapes all other characters into valid CSS
-hexadecimal escapes.
+CSS is similar to [escaping Javascript](escaping-javascript.md).  CSS escaping
+excludes only basic alphanumeric characters and escapes all other characters
+into valid CSS hexadecimal escapes.
 
-## Examples of Bad CSS Escaping
+## Example of Bad CSS Escaping
 
 In most cases developers forget to escape CSS completely:
 
@@ -23,7 +23,7 @@ INPUT;
     <title>Unescaped CSS</title>
     <meta charset="UTF-8"/>
     <style>
-    <?php echo $input; ?>
+    <?= $input ?>
     </style>
 </head>
 <body>
@@ -32,12 +32,12 @@ INPUT;
 </html>
 ```
 
-In the above example, by failing to escape the user provided CSS, an attacker can execute an XSS
-attack fairly easily.
+In the above example, by failing to escape the user provided CSS, an attacker
+can execute an XSS attack fairly easily.
 
-## Examples of Good CSS Escaping
+## Example of Good CSS Escaping
 
-By using `escapeCss` method in the CSS context, such attacks can be prevented:
+By using `escapeCss()` method in the CSS context, such attacks can be prevented:
 
 ```php
 <?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?>
@@ -48,6 +48,7 @@ body {
     background-image: url('http://example.com/foo.jpg?</style><script>alert(1)</script>');
 }
 INPUT;
+
 $escaper = new Zend\Escaper\Escaper('utf-8');
 $output = $escaper->escapeCss($input);
 ?>
@@ -69,4 +70,5 @@ $output = $escaper->escapeCss($input);
 </html>
 ```
 
-By properly escaping user controlled CSS, we can prevent XSS attacks in our web applications.
+By properly escaping user controlled CSS, we can prevent XSS attacks in our web
+applications.

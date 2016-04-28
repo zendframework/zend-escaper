@@ -1,11 +1,11 @@
-# Configuring Zend\\Escaper
+# Configuration
 
-`Zend\Escaper\Escaper` has only one configuration option available, and that is the encoding to be
-used by the Escaper object.
+`Zend\Escaper\Escaper` has only one configuration option available, and that is
+the encoding to be used by the `Escaper` instance.
 
 The default encoding is **utf-8**. Other supported encodings are:
 
-> -   iso-8859-1
+- iso-8859-1
 - iso-8859-5
 - iso-8859-15
 - cp866, ibm866, 866
