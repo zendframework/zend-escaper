@@ -27,11 +27,11 @@ data is used. It is up to the developer to use the right methods in the right co
 
 `Zend\Escaper\Escaper` has the following escaping methods available for each context:
 
-> -   **escapeHtml**: escape a string for the HTML Body context.
-- **escapeHtmlAttr**: escape a string for the HTML Attribute context.
-- **escapeJs**: escape a string for the Javascript context.
-- **escapeCss**: escape a string for the CSS context.
-- **escapeUrl**: escape a string for the URI or Parameter contexts.
+* **escapeHtml**: escape a string for the HTML Body context.
+* **escapeHtmlAttr**: escape a string for the HTML Attribute context.
+* **escapeJs**: escape a string for the Javascript context.
+* **escapeCss**: escape a string for the CSS context.
+* **escapeUrl**: escape a string for the URI or Parameter contexts.
 
 Usage of each method will be discussed in detail in later chapters.
 
