@@ -244,7 +244,7 @@ class Escaper
          * replace it with while grabbing the integer value of the character.
          */
         if (strlen($chr) > 1) {
-            $chr = $this->convertEncoding($chr, 'UTF-16BE', 'UTF-8');
+            $chr = $this->convertEncoding($chr, 'UTF-32BE', 'UTF-8');
         }
 
         $hex = bin2hex($chr);
@@ -277,7 +277,13 @@ class Escaper
             return sprintf('\\x%02X', ord($chr));
         }
         $chr = $this->convertEncoding($chr, 'UTF-16BE', 'UTF-8');
-        return sprintf('\\u%04s', strtoupper(bin2hex($chr)));
+        $hex = strtoupper(bin2hex($chr));
+        if (strlen($hex) <= 4) {
+            return sprintf('\\u%04s', $hex);
+        }
+        $highSurrogate = substr($hex, 0, 4);
+        $lowSurrogate = substr($hex, 4, 4);
+        return sprintf('\\u%04s\\u%04s', $highSurrogate, $lowSurrogate);
     }
 
     /**
@@ -293,7 +299,7 @@ class Escaper
         if (strlen($chr) == 1) {
             $ord = ord($chr);
         } else {
-            $chr = $this->convertEncoding($chr, 'UTF-16BE', 'UTF-8');
+            $chr = $this->convertEncoding($chr, 'UTF-32BE', 'UTF-8');
             $ord = hexdec(bin2hex($chr));
         }
         return sprintf('\\%X ', $ord);
