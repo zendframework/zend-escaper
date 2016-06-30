@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.5.2 - TBD
+## 2.5.2 - 2016-06-30
 
 ### Added
 
@@ -21,4 +21,6 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#3](https://github.com/zendframework/zend-escaper/pull/3) updates the
+  the escaping mechanism to add support for escaping characters outside the Basic
+  Multilingual Plane when escaping for JS, CSS, or HTML attributes.
