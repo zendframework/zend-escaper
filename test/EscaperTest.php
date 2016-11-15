@@ -329,7 +329,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testJavascriptEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = [',', '.', '_']; // Exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A
@@ -354,7 +354,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testHtmlAttributeEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = [',', '.', '-', '_']; // Exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A
@@ -379,7 +379,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testCssEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = []; // CSS has no exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A
