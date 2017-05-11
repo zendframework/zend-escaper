@@ -7,6 +7,12 @@
         "escaper"
     ],
     "homepage": "https://github.com/zendframework/zend-escaper",
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-escaper",
+        "forum": "https://discourse.zendframework.com",
+        "issues": "https://github.com/zendframework/zend-escaper/issues",
+        "source": "https://github.com/zendframework/zend-escaper"
+    },
     "autoload": {
         "psr-4": {
             "Zend\\Escaper\\": "src/"
