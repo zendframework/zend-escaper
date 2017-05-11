@@ -315,6 +315,8 @@ class Escaper
      */
     protected function toUtf8($string)
     {
+        $string = (string) $string;
+
         if ($this->getEncoding() === 'utf-8') {
             $result = $string;
         } else {
