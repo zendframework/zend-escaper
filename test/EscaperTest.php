@@ -177,7 +177,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Zend\Escaper\Exception\InvalidArgumentException
-     * @expectedExceptionMessage Zend\Escaper\Escaper constructor parameter must be a string, received intege
+     * @expectedExceptionMessage Zend\Escaper\Escaper constructor parameter must be a string, received integer
      */
     public function testSettingEncodingToNonStringShouldThrowException()
     {
