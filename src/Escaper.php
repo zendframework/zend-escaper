@@ -95,7 +95,11 @@ class Escaper
     public function __construct($encoding = null)
     {
         if ($encoding !== null) {
-            $encoding = (string) $encoding;
+            if (! is_string($encoding)) {
+                throw new Exception\InvalidArgumentException(
+                    get_class($this) . ' constructor parameter must be a string, received ' . gettype($encoding)
+                );
+            }
             if ($encoding === '') {
                 throw new Exception\InvalidArgumentException(
                     get_class($this) . ' constructor parameter does not allow a blank value'
