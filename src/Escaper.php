@@ -97,7 +97,7 @@ class Escaper
         if ($encoding !== null) {
             if (! is_string($encoding)) {
                 throw new Exception\InvalidArgumentException(
-                    sprintf('constructor parameter must be a string, received %s', gettype($encoding))
+                    get_class($this) . ' constructor parameter must be a string, received ' . gettype($encoding)
                 );
             }
             if ($encoding === '') {
