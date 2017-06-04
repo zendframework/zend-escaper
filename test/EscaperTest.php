@@ -170,6 +170,11 @@ class EscaperTest extends TestCase
         ' '     => '\\20 ',
     ];
 
+    /**
+     * @var Escaper
+     */
+    protected $escaper;
+
 
     public function setUp()
     {
@@ -181,7 +186,7 @@ class EscaperTest extends TestCase
      */
     public function testSettingEncodingToEmptyStringShouldThrowException()
     {
-        $escaper = new Escaper('');
+        new Escaper('');
     }
 
     public function testSettingValidEncodingShouldNotThrowExceptions()
@@ -198,7 +203,7 @@ class EscaperTest extends TestCase
      */
     public function testSettingEncodingToInvalidValueShouldThrowException()
     {
-        $escaper = new Escaper('invalid-encoding');
+        new Escaper('invalid-encoding');
     }
 
     public function testReturnsEncodingFromGetter()
