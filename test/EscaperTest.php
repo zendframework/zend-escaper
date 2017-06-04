@@ -9,9 +9,10 @@
 
 namespace ZendTest\Escaper;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Escaper\Escaper;
 
-class EscaperTest extends \PHPUnit_Framework_TestCase
+class EscaperTest extends TestCase
 {
     /**
      * All character encodings supported by htmlspecialchars()
