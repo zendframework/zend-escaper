@@ -188,6 +188,8 @@ class EscaperTest extends TestCase
     {
         foreach ($this->supportedEncodings as $value) {
             $escaper = new Escaper($value);
+
+            $this->assertSame($value, $escaper->getEncoding());
         }
     }
 
