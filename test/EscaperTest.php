@@ -9,9 +9,10 @@
 
 namespace ZendTest\Escaper;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Escaper\Escaper;
 
-class EscaperTest extends \PHPUnit_Framework_TestCase
+class EscaperTest extends TestCase
 {
     /**
      * All character encodings supported by htmlspecialchars()
@@ -169,6 +170,11 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
         ' '     => '\\20 ',
     ];
 
+    /**
+     * @var Escaper
+     */
+    protected $escaper;
+
 
     public function setUp()
     {
@@ -180,13 +186,15 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSettingEncodingToEmptyStringShouldThrowException()
     {
-        $escaper = new Escaper('');
+        new Escaper('');
     }
 
     public function testSettingValidEncodingShouldNotThrowExceptions()
     {
         foreach ($this->supportedEncodings as $value) {
             $escaper = new Escaper($value);
+
+            $this->assertSame($value, $escaper->getEncoding());
         }
     }
 
@@ -195,7 +203,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSettingEncodingToInvalidValueShouldThrowException()
     {
-        $escaper = new Escaper('invalid-encoding');
+        new Escaper('invalid-encoding');
     }
 
     public function testReturnsEncodingFromGetter()
