@@ -1,26 +1,30 @@
 {
     "name": "zendframework/zend-escaper",
-    "description": " ",
+    "description": "Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "zf",
+        "zendframework",
         "escaper"
     ],
-    "homepage": "https://github.com/zendframework/zend-escaper",
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-escaper/",
+        "issues": "https://github.com/zendframework/zend-escaper/issues",
+        "source": "https://github.com/zendframework/zend-escaper",
+        "rss": "https://github.com/zendframework/zend-escaper/releases.atom",
+        "slack": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
+    },
+    "require": {
+        "php": "^5.6 || ^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.23 || ^6.4.3",
+        "zendframework/zend-coding-standard": "~1.0.0"
+    },
     "autoload": {
         "psr-4": {
             "Zend\\Escaper\\": "src/"
-        }
-    },
-    "require": {
-        "php": "^7.0 || ^5.6"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.5-dev",
-            "dev-develop": "2.6-dev"
         }
     },
     "autoload-dev": {
@@ -28,9 +32,14 @@
             "ZendTest\\Escaper\\": "test/"
         }
     },
-    "require-dev": {
-        "phpunit/PHPUnit": "^6.2.1 || ^5.7.15"
-        "zendframework/zend-coding-standard": "~1.0.0"
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.5-dev",
+            "dev-develop": "2.6-dev"
+        }
     },
     "scripts": {
         "check": [
