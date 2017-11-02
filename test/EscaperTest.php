@@ -34,7 +34,7 @@ class EscaperTest extends TestCase
         '"'     => '&quot;',
         '<'     => '&lt;',
         '>'     => '&gt;',
-        '&'     => '&amp;'
+        '&'     => '&amp;',
     ];
 
     protected $htmlAttrSpecialChars = [
@@ -175,7 +175,6 @@ class EscaperTest extends TestCase
      */
     protected $escaper;
 
-
     public function setUp()
     {
         $this->escaper = new Escaper('UTF-8');
@@ -198,11 +197,9 @@ class EscaperTest extends TestCase
         }
     }
 
-    /**
-     * @expectedException \Zend\Escaper\Exception\InvalidArgumentException
-     */
     public function testSettingEncodingToInvalidValueShouldThrowException()
     {
+        $this->expectException(\Zend\Escaper\Exception\InvalidArgumentException::class);
         new Escaper('invalid-encoding');
     }
 
@@ -308,7 +305,7 @@ class EscaperTest extends TestCase
     /**
      * Convert a Unicode Codepoint to a literal UTF-8 character.
      *
-     * @param int Unicode codepoint in hex notation
+     * @param int $codepoint Unicode codepoint in hex notation
      * @return string UTF-8 literal string
      */
     protected function codepointToUtf8($codepoint)
