@@ -10,4 +10,4 @@ It offers developers a way to escape output and defend from XSS and related
 vulnerabilities by introducing contextual escaping based on peer-reviewed rules.
 
 - File issues at https://github.com/zendframework/zend-escaper/issues
-- Documentation is at https://zendframework.github.io/zend-escaper/
+- Documentation is at https://docs.zendframework.com/zend-escaper/
