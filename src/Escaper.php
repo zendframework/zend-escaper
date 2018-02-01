@@ -86,13 +86,20 @@ class Escaper
     ];
 
     /**
+     * Set debug mode to true to identify critical failures that you may want to mask during production.
+     * @var bool
+     */
+    private $debug;
+
+    /**
      * Constructor: Single parameter allows setting of global encoding for use by
      * the current object.
      *
      * @param string $encoding
+     * @param bool $debug
      * @throws Exception\InvalidArgumentException
      */
-    public function __construct($encoding = null)
+    public function __construct($encoding = null, $debug = false)
     {
         if ($encoding !== null) {
             $encoding = (string) $encoding;
@@ -111,6 +118,7 @@ class Escaper
             }
 
             $this->encoding = $encoding;
+            $this->debug = $debug;
         }
 
         // We take advantage of ENT_SUBSTITUTE flag to correctly deal with invalid UTF-8 sequences.
@@ -322,6 +330,10 @@ class Escaper
         }
 
         if (!$this->isUtf8($result)) {
+            if (!$this->debug) {
+                return '';
+            }
+
             throw new Exception\RuntimeException(
                 sprintf('String to be escaped was not valid UTF-8 or could not be converted: %s', $result)
             );

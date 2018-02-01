@@ -10,6 +10,7 @@
 namespace ZendTest\Escaper;
 
 use Zend\Escaper\Escaper;
+use Zend\Escaper\Exception\RuntimeException;
 
 class EscaperTest extends \PHPUnit_Framework_TestCase
 {
@@ -395,5 +396,34 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
                 );
             }
         }
+    }
+
+    /**
+     * Under 'standard' operation, we can't have the Escaper dumping attack vectors into templates
+     * @throws \ReflectionException
+     */
+    public function testWillInsulateAgainstMalformedInput()
+    {
+        $reflection = new \ReflectionClass(get_class($this->escaper));
+        $method = $reflection->getMethod('toUtf8');
+        $method->setAccessible(true);
+        $this->assertSame(
+            '',
+            $method->invokeArgs($this->escaper, ["\xc3\x28"])
+        );
+    }
+
+    /**
+     * Under 'standard' operation, we can't have the Escaper dumping attack vectors into templates
+     * @throws \ReflectionException
+     * @expectedException RuntimeException
+     */
+    public function testWillReportMalformedInputInDebugMode()
+    {
+        $this->escaper = new Escaper('utf-8', true);
+        $reflection = new \ReflectionClass(get_class($this->escaper));
+        $method = $reflection->getMethod('toUtf8');
+        $method->setAccessible(true);
+        $method->invokeArgs($this->escaper, ["\xc3\x28"]);
     }
 }
