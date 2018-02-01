@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- Default behavior changed when malformed is pushed into toUtf8.  Rather than dumping the bad string in an exception (dangerous behavior), it will return a blank string.
+- Boolean 'debug' parameter added as second constructor argument, that preserves the old behavior when set to true. 
 
 ### Deprecated
 
