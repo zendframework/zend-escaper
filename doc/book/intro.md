@@ -11,7 +11,7 @@ zend-escaper was written with ease of use in mind, so it can be used completely 
 the rest of the framework, and as such can be installed with Composer:
 
 ```bash
-$ composer install zendframework/zend-escaper
+$ composer require zendframework/zend-escaper
 ```
 
 Several Zend Framework components provide integrations for consuming
