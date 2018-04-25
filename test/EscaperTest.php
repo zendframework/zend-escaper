@@ -182,6 +182,15 @@ class EscaperTest extends TestCase
 
     /**
      * @expectedException \Zend\Escaper\Exception\InvalidArgumentException
+     * @expectedExceptionMessage Zend\Escaper\Escaper constructor parameter must be a string, received integer
+     */
+    public function testSettingEncodingToNonStringShouldThrowException()
+    {
+        $escaper = new Escaper(1);
+    }
+
+    /**
+     * @expectedException \Zend\Escaper\Exception\InvalidArgumentException
      */
     public function testSettingEncodingToEmptyStringShouldThrowException()
     {
