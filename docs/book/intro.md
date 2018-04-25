@@ -11,7 +11,7 @@ zend-escaper was written with ease of use in mind, so it can be used completely 
 the rest of the framework, and as such can be installed with Composer:
 
 ```bash
-$ composer install zendframework/zend-escaper
+$ composer require zendframework/zend-escaper
 ```
 
 Several Zend Framework components provide integrations for consuming
@@ -46,6 +46,6 @@ Usage of each method will be discussed in detail in later chapters.
 
 zend-escaper is meant to be used only for *escaping data for output*, and as
 such should not be misused for *filtering input data*. For such tasks, use
-[zend-filter](https://zendframework.github.io/zend-filter/),
+[zend-filter](https://docs.zendframework.com/zend-filter/),
 [HTMLPurifier](http://htmlpurifier.org/) or PHP's
 [Filter](http://php.net/filter) functionality should be used.

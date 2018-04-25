@@ -42,7 +42,7 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-<?php 
+<?php
     // Bad! The escaper's and the document's encodings are different!
     echo $escaper->escapeHtml($input);
 ?>
@@ -66,7 +66,7 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<?php 
+<?php
     // Good! The escaper's and the document's encodings are same!
     echo $escaper->escapeHtml($input);
 ?>
