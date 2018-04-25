@@ -37,7 +37,7 @@ $output = htmlspecialchars($input);
 </head>
 <body>
     <div>
-        <?php 
+        <?php
         // the span tag will look like:
         // <span title='' onmouseover='alert(/ZF2!/);'>
         ?>
@@ -74,7 +74,7 @@ $output = htmlspecialchars($input, ENT_QUOTES);
 </head>
 <body>
     <div>
-        <?php 
+        <?php
         // the span tag will look like:
         // <span title=faketitle onmouseover=alert(/ZF2!/);>
         ?>
@@ -112,7 +112,7 @@ $output = $escaper->escapeHtmlAttr($input);
 </head>
 <body>
     <div>
-        <?php 
+        <?php
         // the span tag will look like:
         // <span title=faketitle&#x20;onmouseover&#x3D;alert&#x28;&#x2F;ZF2&#x21;&#x2F;&#x29;&#x3B;>
         ?>

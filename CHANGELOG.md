@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
+- [#28](https://github.com/zendframework/zend-escaper/pull/28) adds support for PHP 7.1 and 7.2.
+
+### Changed
+
 - Nothing.
 
 ### Deprecated
@@ -14,7 +18,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#28](https://github.com/zendframework/zend-escaper/pull/28) removes support for PHP 5.5.
+
+- [#28](https://github.com/zendframework/zend-escaper/pull/28) removes support for HHVM.
 
 ### Fixed
 

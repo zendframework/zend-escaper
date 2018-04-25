@@ -9,9 +9,10 @@
 
 namespace ZendTest\Escaper;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Escaper\Escaper;
 
-class EscaperTest extends \PHPUnit_Framework_TestCase
+class EscaperTest extends TestCase
 {
     /**
      * All character encodings supported by htmlspecialchars()
@@ -33,7 +34,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
         '"'     => '&quot;',
         '<'     => '&lt;',
         '>'     => '&gt;',
-        '&'     => '&amp;'
+        '&'     => '&amp;',
     ];
 
     protected $htmlAttrSpecialChars = [
@@ -169,6 +170,10 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
         ' '     => '\\20 ',
     ];
 
+    /**
+     * @var Escaper
+     */
+    protected $escaper;
 
     public function setUp()
     {
@@ -180,22 +185,22 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSettingEncodingToEmptyStringShouldThrowException()
     {
-        $escaper = new Escaper('');
+        new Escaper('');
     }
 
     public function testSettingValidEncodingShouldNotThrowExceptions()
     {
         foreach ($this->supportedEncodings as $value) {
             $escaper = new Escaper($value);
+
+            $this->assertSame($value, $escaper->getEncoding());
         }
     }
 
-    /**
-     * @expectedException \Zend\Escaper\Exception\InvalidArgumentException
-     */
     public function testSettingEncodingToInvalidValueShouldThrowException()
     {
-        $escaper = new Escaper('invalid-encoding');
+        $this->expectException(\Zend\Escaper\Exception\InvalidArgumentException::class);
+        new Escaper('invalid-encoding');
     }
 
     public function testReturnsEncodingFromGetter()
@@ -300,7 +305,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     /**
      * Convert a Unicode Codepoint to a literal UTF-8 character.
      *
-     * @param int Unicode codepoint in hex notation
+     * @param int $codepoint Unicode codepoint in hex notation
      * @return string UTF-8 literal string
      */
     protected function codepointToUtf8($codepoint)
@@ -329,7 +334,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testJavascriptEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = [',', '.', '_']; // Exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A
@@ -354,7 +359,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testHtmlAttributeEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = [',', '.', '-', '_']; // Exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A
@@ -379,7 +384,7 @@ class EscaperTest extends \PHPUnit_Framework_TestCase
     public function testCssEscapingEscapesOwaspRecommendedRanges()
     {
         $immune = []; // CSS has no exceptions to escaping ranges
-        for ($chr=0; $chr < 0xFF; $chr++) {
+        for ($chr = 0; $chr < 0xFF; $chr++) {
             if ($chr >= 0x30 && $chr <= 0x39
                 || $chr >= 0x41 && $chr <= 0x5A
                 || $chr >= 0x61 && $chr <= 0x7A

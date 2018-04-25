@@ -35,7 +35,7 @@ echo $escaper->escapeHtmlAttr('<script>alert("zf2")</script>');
 // \x3Cscript\x3Ealert\x28\x22zf2\x22\x29\x3C\x2Fscript\x3E
 echo $escaper->escapeJs('<script>alert("zf2")</script>');
 
-// \3C script\3E alert\28 \22 zf2\22 \29 \3C \2F script\3E 
+// \3C script\3E alert\28 \22 zf2\22 \29 \3C \2F script\3E
 echo $escaper->escapeCss('<script>alert("zf2")</script>');
 
 // %3Cscript%3Ealert%28%22zf2%22%29%3C%2Fscript%3E
