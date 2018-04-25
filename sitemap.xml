@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/intro/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/intro/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,44 +20,44 @@
     
         
     <url>
-     <loc>None/theory-of-operation/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/theory-of-operation/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/configuration/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/configuration/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/escaping-html/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/escaping-html/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/escaping-html-attributes/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/escaping-html-attributes/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/escaping-javascript/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/escaping-javascript/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/escaping-css/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/escaping-css/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/escaping-url/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/escaping-url/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
