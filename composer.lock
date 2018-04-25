@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79dea1286a8db9358653a6972693b305",
+    "content-hash": "d00aa3524ecd5130efb285e64b038ce4",
     "packages": [],
     "packages-dev": [
         {

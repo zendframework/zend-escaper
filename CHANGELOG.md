@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.6.0 - TBD
+## 2.6.0 - 2018-04-25
 
 ### Added
 
@@ -22,24 +22,6 @@ All notable changes to this project will be documented in this file, in reverse 
 - [#28](https://github.com/zendframework/zend-escaper/pull/28) removes support for PHP 5.5.
 
 - [#28](https://github.com/zendframework/zend-escaper/pull/28) removes support for HHVM.
-
-### Fixed
-
-- Nothing.
-
-## 2.5.3 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
 
 ### Fixed
 
