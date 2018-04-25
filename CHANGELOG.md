@@ -27,24 +27,6 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 2.5.3 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
 ## 2.5.2 - 2016-06-30
 
 ### Added
