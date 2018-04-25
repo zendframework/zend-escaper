@@ -10,7 +10,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- [#25](https://github.com/zendframework/zend-escaper/pull/25) changes the behavior of the `Escaper` constructor; it now raises an
+  exception for non-null, non-string `$encoding` arguments.
 
 ### Deprecated
 
