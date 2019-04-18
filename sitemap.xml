@@ -1,66 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/intro/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/theory-of-operation/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/configuration/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/escaping-html/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/escaping-html-attributes/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/escaping-javascript/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/escaping-css/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/escaping-url/</loc>
-     <lastmod>2019-04-17</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-04-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
 </urlset>

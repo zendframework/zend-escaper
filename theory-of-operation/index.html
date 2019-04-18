@@ -12,6 +12,7 @@
     <title>Theory of Operation - zend-escaper</title>
 
     <link rel="stylesheet" href="../css/styles-18b942728f.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 </head>
 <body id="page-top">
 
@@ -66,7 +67,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-escaper</a>
+            <a href="">zend-escaper</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,13 +76,13 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-escaper</a>
+                        <a href="" class="subnavigation__link">zend-escaper</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../intro/" class="subnavigation__link">Intro</a>
+                        <a href="intro/" class="subnavigation__link">Intro</a>
                     </li>
                 
             
@@ -92,43 +93,43 @@
                             
                                 
     <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Theory of Operation</a>
+        <a href="theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../configuration/" class="subnavigation__link">Configuration</a>
+        <a href="configuration/" class="subnavigation__link">Configuration</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html/" class="subnavigation__link">Escaping HTML</a>
+        <a href="escaping-html/" class="subnavigation__link">Escaping HTML</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
+        <a href="escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
+        <a href="escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-css/" class="subnavigation__link">Escaping CSS</a>
+        <a href="escaping-css/" class="subnavigation__link">Escaping CSS</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-url/" class="subnavigation__link">Escaping URLs</a>
+        <a href="escaping-url/" class="subnavigation__link">Escaping URLs</a>
     </li>
 
                             
@@ -212,7 +213,7 @@
         <li><a href="https://docs.zendframework.com/">Documentation</a></li>
 
         
-            <li><a href="..">zend-escaper</a></li>
+            <li><a href="">zend-escaper</a></li>
 
             
                 
@@ -270,19 +271,19 @@ escaped differently between contexts:</p>
 <pre class="codehilite"><code class="language-php">$escaper = new Zend\Escaper\Escaper('utf-8');
 
 // &amp;lt;script&amp;gt;alert(&amp;quot;zf2&amp;quot;)&amp;lt;/script&amp;gt;
-echo $escaper-&gt;escapeHtml('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+echo $escaper-&gt;escapeHtml('&lt;script&gt;alert("zf2")&lt;/script&gt;');
 
 // &amp;lt;script&amp;gt;alert&amp;#x28;&amp;quot;zf2&amp;quot;&amp;#x29;&amp;lt;&amp;#x2F;script&amp;gt;
-echo $escaper-&gt;escapeHtmlAttr('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+echo $escaper-&gt;escapeHtmlAttr('&lt;script&gt;alert("zf2")&lt;/script&gt;');
 
 // \x3Cscript\x3Ealert\x28\x22zf2\x22\x29\x3C\x2Fscript\x3E
-echo $escaper-&gt;escapeJs('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+echo $escaper-&gt;escapeJs('&lt;script&gt;alert("zf2")&lt;/script&gt;');
 
 // \3C script\3E alert\28 \22 zf2\22 \29 \3C \2F script\3E
-echo $escaper-&gt;escapeCss('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
+echo $escaper-&gt;escapeCss('&lt;script&gt;alert("zf2")&lt;/script&gt;');
 
 // %3Cscript%3Ealert%28%22zf2%22%29%3C%2Fscript%3E
-echo $escaper-&gt;escapeUrl('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');</code></pre>
+echo $escaper-&gt;escapeUrl('&lt;script&gt;alert("zf2")&lt;/script&gt;');</code></pre>
 
 <p>More detailed examples will be given in later chapters.</p>
 <h2 id="the-problem-with-inconsistent-functionality">The Problem with Inconsistent Functionality</h2>
@@ -380,7 +381,7 @@ a singular reliance on it a questionable practice.</p>
         
         <li class="page-nav__item">
             
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../intro/">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="intro/">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             
@@ -389,7 +390,7 @@ a singular reliance on it a questionable practice.</p>
         
         <li class="page-nav__item">
             
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../configuration/">
+                <a rel="next" class="page-nav__link page-nav__link--next" href="configuration/">
                     Next <i class="fa fa-chevron-right"></i>
                 </a>
             
@@ -424,7 +425,7 @@ a singular reliance on it a questionable practice.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-escaper</a>
+            <a href="">zend-escaper</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -433,13 +434,13 @@ a singular reliance on it a questionable practice.</p>
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-escaper</a>
+                        <a href="" class="subnavigation__link">zend-escaper</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../intro/" class="subnavigation__link">Intro</a>
+                        <a href="intro/" class="subnavigation__link">Intro</a>
                     </li>
                 
             
@@ -450,43 +451,43 @@ a singular reliance on it a questionable practice.</p>
                             
                                 
     <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Theory of Operation</a>
+        <a href="theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../configuration/" class="subnavigation__link">Configuration</a>
+        <a href="configuration/" class="subnavigation__link">Configuration</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html/" class="subnavigation__link">Escaping HTML</a>
+        <a href="escaping-html/" class="subnavigation__link">Escaping HTML</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
+        <a href="escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
+        <a href="escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-css/" class="subnavigation__link">Escaping CSS</a>
+        <a href="escaping-css/" class="subnavigation__link">Escaping CSS</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-url/" class="subnavigation__link">Escaping URLs</a>
+        <a href="escaping-url/" class="subnavigation__link">Escaping URLs</a>
     </li>
 
                             
@@ -568,9 +569,8 @@ a singular reliance on it a questionable practice.</p>
         var base_url = '..',
             siteName = 'zend-escaper';
     </script>
-    <script src="../js/scripts-0bcb0a3bb3.js"></script>
-        <script src="../search/require.js"></script>
-        <script src="../search/search.js"></script>
+    <script src="../js/scripts-edc4cfa790.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -599,6 +599,14 @@ a singular reliance on it a questionable practice.</p>
             </div>
         </div>
     </div>
+
+<script>
+// Anchors
+anchors.options.placement = 'left';
+anchors.add(
+    '.content h1:not(.content__title), .content h2, .content > h3, .content h4, .content h5'
+);
+</script>
 
 
 
