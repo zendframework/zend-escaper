@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="zend-escaper">  
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="//img/favicon.ico">
 
-    <title>Escaping CSS - zend-escaper - Zend Framework Docs</title>
+    <title>zend-escaper - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-f3b53f5ceb.css">
+    <link rel="stylesheet" href="//css/styles-f3b53f5ceb.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="//img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-escaper</a>
+            <a href="/.">zend-escaper</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,13 +75,13 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-escaper</a>
+                        <a href="/." class="subnavigation__link">zend-escaper</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../intro/" class="subnavigation__link">Intro</a>
+                        <a href="/intro/" class="subnavigation__link">Intro</a>
                     </li>
                 
             
@@ -92,43 +92,43 @@
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
+        <a href="/theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../configuration/" class="subnavigation__link">Configuration</a>
+        <a href="/configuration/" class="subnavigation__link">Configuration</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html/" class="subnavigation__link">Escaping HTML</a>
+        <a href="/escaping-html/" class="subnavigation__link">Escaping HTML</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
+        <a href="/escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
-    </li>
-
-                            
-                                
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Escaping CSS</a>
+        <a href="/escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-url/" class="subnavigation__link">Escaping URLs</a>
+        <a href="/escaping-css/" class="subnavigation__link">Escaping CSS</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="/escaping-url/" class="subnavigation__link">Escaping URLs</a>
     </li>
 
                             
@@ -205,154 +205,18 @@
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
-                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-    <li><a href="https://framework.zend.com/">Home</a></li>
 
-    
-        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-        
-            <li><a href="..">zend-escaper</a></li>
-
-            
-                
-                    <li>Reference</li>
-                
-            
-
-            <li class="active">Escaping CSS</li>
-        
-    
-</ol>
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 
-    
-        <h2 class="chapter__headline">Reference</h2>
-    
-
-    
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">In This Article</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#example-of-bad-css-escaping" class="toc__link">Example of Bad CSS Escaping</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#example-of-good-css-escaping" class="toc__link">Example of Good CSS Escaping</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
-
-    <h1 id="escaping-cascading-style-sheets">Escaping Cascading Style Sheets</h1>
-<p>CSS is similar to <a href="../escaping-javascript/">escaping Javascript</a>.  CSS escaping
-excludes only basic alphanumeric characters and escapes all other characters
-into valid CSS hexadecimal escapes.</p>
-<h2 id="example-of-bad-css-escaping">Example of Bad CSS Escaping</h2>
-<p>In most cases developers forget to escape CSS completely:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;?php
-$input = &lt;&lt;&lt;INPUT
-body {
-    background-image: url('http://example.com/foo.jpg?&lt;/style&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
-}
-INPUT;
-?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-&lt;head&gt;
-    &lt;title&gt;Unescaped CSS&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
-    &lt;style&gt;
-    &lt;?= $input ?&gt;
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-<p>In the above example, by failing to escape the user provided CSS, an attacker
-can execute an XSS attack fairly easily.</p>
-<h2 id="example-of-good-css-escaping">Example of Good CSS Escaping</h2>
-<p>By using <code>escapeCss()</code> method in the CSS context, such attacks can be prevented:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;?php
-$input = &lt;&lt;&lt;INPUT
-body {
-    background-image: url('http://example.com/foo.jpg?&lt;/style&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
-}
-INPUT;
-
-$escaper = new Zend\Escaper\Escaper('utf-8');
-$output = $escaper-&gt;escapeCss($input);
-?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-&lt;head&gt;
-    &lt;title&gt;Escaped CSS&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
-    &lt;style&gt;
-    &lt;?php
-    // output will look something like
-    // body\20 \7B \A \20 \20 \20 \20 background\2D image\3A \20 url\28 ...
-    echo $output;
-    ?&gt;
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-<p>By properly escaping user controlled CSS, we can prevent XSS attacks in our web
-applications.</p>
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../escaping-javascript/">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../escaping-url/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/escaping-css.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             <!-- content:end -->
             </div>
             <div class="col-md-3 col-xs-12 sidebar">
@@ -368,7 +232,7 @@ applications.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-escaper</a>
+            <a href="/.">zend-escaper</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -377,13 +241,13 @@ applications.</p>
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-escaper</a>
+                        <a href="/." class="subnavigation__link">zend-escaper</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../intro/" class="subnavigation__link">Intro</a>
+                        <a href="/intro/" class="subnavigation__link">Intro</a>
                     </li>
                 
             
@@ -394,43 +258,43 @@ applications.</p>
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
+        <a href="/theory-of-operation/" class="subnavigation__link">Theory of Operation</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../configuration/" class="subnavigation__link">Configuration</a>
+        <a href="/configuration/" class="subnavigation__link">Configuration</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html/" class="subnavigation__link">Escaping HTML</a>
+        <a href="/escaping-html/" class="subnavigation__link">Escaping HTML</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
+        <a href="/escaping-html-attributes/" class="subnavigation__link">Escaping HTML Attributes</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
-    </li>
-
-                            
-                                
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Escaping CSS</a>
+        <a href="/escaping-javascript/" class="subnavigation__link">Escaping Javascript</a>
     </li>
 
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../escaping-url/" class="subnavigation__link">Escaping URLs</a>
+        <a href="/escaping-css/" class="subnavigation__link">Escaping CSS</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="/escaping-url/" class="subnavigation__link">Escaping URLs</a>
     </li>
 
                             
@@ -509,11 +373,11 @@ applications.</p>
 </footer>
 
     <script>
-        var base_url = '..',
+        var base_url = '/',
             siteName = 'zend-escaper';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="//js/scripts-8d7ae56abf.js"></script>
+        <script src="/search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
