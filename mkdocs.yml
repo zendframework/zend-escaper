@@ -1,8 +1,8 @@
 docs_dir: docs/book
 site_dir: docs/html
 pages:
-    - index.md
-    - Intro: intro.md
+    - Home: index.md
+    - Introduction: intro.md
     - Reference:
         - "Theory of Operation": theory-of-operation.md
         - Configuration: configuration.md
@@ -12,6 +12,5 @@ pages:
         - "Escaping CSS": escaping-css.md
         - "Escaping URLs": escaping-url.md
 site_name: zend-escaper
-site_description: zend-escaper
+site_description: 'Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs'
 repo_url: 'https://github.com/zendframework/zend-escaper'
-copyright: 'Copyright (c) 2005-2018 <a href="https://www.zend.com/">Zend Technologies USA Inc.</a>'
