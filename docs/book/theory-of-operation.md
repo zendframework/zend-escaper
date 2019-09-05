@@ -108,7 +108,7 @@ valid HTML.
 
 ### HTML escaping of CSS, Javascript or URIs is often reversed when passed to non-HTML interpreters by the browser
 
-HTML escaping is just that &mdsash; it's designed to escape a string for HTML
+HTML escaping is just that &mdash; it's designed to escape a string for HTML
 (i.e. prevent tag or attribute insertion), but not alter the underlying meaning
 of the content, whether it be text, Javascript, CSS, or URIs. For that purpose,
 a fully HTML-escaped version of any other context may still have its unescaped
