@@ -289,7 +289,7 @@ covered by <code>htmlspecialchars()</code> to cover the cases where an attribute
 unquoted or quoted illegally.</p>
 <h2 id="examples-of-bad-html-attribute-escaping">Examples of Bad HTML Attribute Escaping</h2>
 <p>An example of incorrect HTML attribute escaping:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -304,7 +304,7 @@ $output = htmlspecialchars($input);
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Single Quoted Attribute&lt;/title&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;div&gt;
@@ -317,14 +317,13 @@ $output = htmlspecialchars($input);
         &lt;/span&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>In the above example, the default <code>ENT_COMPAT</code> flag is being used, which does
 not escape single quotes, thus resulting in an alert box popping up when the
 <code>onmouseover</code> event happens on the <code>span</code> element.</p>
 <p>Another example of incorrect HTML attribute escaping can happen when unquoted
 attributes are used (which is, by the way, perfectly valid HTML5):</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -337,7 +336,7 @@ $output = htmlspecialchars($input, ENT_QUOTES);
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Quoteless Attribute&lt;/title&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;div&gt;
@@ -350,14 +349,13 @@ $output = htmlspecialchars($input, ENT_QUOTES);
         &lt;/span&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>The above example shows how it is easy to break out from unquoted attributes in
 HTML5.</p>
 <h2 id="example-of-good-html-attribute-escaping">Example of Good HTML Attribute Escaping</h2>
 <p>Both of the previous examples can be avoided by simply using the
 <code>escapeHtmlAttr()</code> method:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -370,7 +368,7 @@ $output = $escaper-&gt;escapeHtmlAttr($input);
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Quoteless Attribute&lt;/title&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;div&gt;
@@ -383,8 +381,7 @@ $output = $escaper-&gt;escapeHtmlAttr($input);
         &lt;/span&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>In the above example, the malicious input from the attacker becomes completely
 harmless as we used proper HTML attribute escaping!</p>
 
@@ -420,7 +417,7 @@ harmless as we used proper HTML attribute escaping!</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/escaping-html-attributes.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/escaping-html-attributes.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

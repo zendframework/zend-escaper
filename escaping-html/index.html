@@ -283,23 +283,22 @@ encoding.</p>
 <p>For escaping data to use within an HTML body context, use
 <code>Zend\Escaper\Escaper</code>'s <code>escapeHtml()</code> method.  Internally it uses PHP's
 <code>htmlspecialchars()</code>, correctly setting the flags and encoding for you.</p>
-<pre class="codehilite"><code class="language-php">// Outputting this without escaping would be a bad idea!
-$input = '&lt;script&gt;alert("zf2")&lt;/script&gt;';
+<p> <pre class=codehilite><code class=language-php>// Outputting this without escaping would be a bad idea!
+$input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 
 $escaper = new Zend\Escaper\Escaper('utf-8');
 
 // somewhere in an HTML template
-&lt;div class="user-provided-input"&gt;
+&lt;div class=&quot;user-provided-input&quot;&gt;
     &lt;?= $escaper-&gt;escapeHtml($input) // all safe! ?&gt;
-&lt;/div&gt;</code></pre>
-
+&lt;/div&gt;</code></pre></p>
 <p>One thing a developer needs to pay special attention to is the encoding in which
 the document is served to the client, as it <strong>must be the same</strong> as the encoding
 used for escaping!</p>
 <h2 id="example-of-bad-html-escaping">Example of Bad HTML Escaping</h2>
 <p>An example of incorrect usage:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php
-$input = '&lt;script&gt;alert("zf2")&lt;/script&gt;';
+<p> <pre class=codehilite><code class=language-php>&lt;?php
+$input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 $escaper = new Zend\Escaper\Escaper('utf-8');
 ?&gt;
 &lt;?php header('Content-Type: text/html; charset=ISO-8859-1'); ?&gt;
@@ -307,19 +306,18 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Encodings set incorrectly!&lt;/title&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;?php
     // Bad! The escaper's and the document's encodings are different!
     echo $escaper-&gt;escapeHtml($input);
 ?&gt;
-&lt;/body&gt;</code></pre>
-
+&lt;/body&gt;</code></pre></p>
 <h2 id="example-of-good-html-escaping">Example of Good HTML Escaping</h2>
 <p>An example of correct usage:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php
-$input = '&lt;script&gt;alert("zf2")&lt;/script&gt;';
+<p> <pre class=codehilite><code class=language-php>&lt;?php
+$input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 $escaper = new Zend\Escaper\Escaper('utf-8');
 ?&gt;
 &lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
@@ -327,14 +325,14 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Encodings set correctly!&lt;/title&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;?php
     // Good! The escaper's and the document's encodings are same!
     echo $escaper-&gt;escapeHtml($input);
 ?&gt;
-&lt;/body&gt;</code></pre>
+&lt;/body&gt;</code></pre></p>
 
 
 
@@ -368,7 +366,7 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/escaping-html.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/escaping-html.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

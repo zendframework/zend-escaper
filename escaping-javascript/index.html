@@ -293,7 +293,7 @@ misinterpretation of Javascript as HTML leading to the injection of special
 characters and entities.</p>
 <h2 id="example-of-bad-javascript-escaping">Example of Bad Javascript Escaping</h2>
 <p>An example of incorrect Javascript escaping:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -302,14 +302,14 @@ INPUT;
 
 $output = json_encode($input);
 ?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;
     &lt;title&gt;Unescaped Entities&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
-    &lt;script type="text/javascript"&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
         &lt;?php
         // this will result in
-        // var foo = "bar&amp;quot;; alert(&amp;quot;Meow!&amp;quot;); var xss=&amp;quot;true";
+        // var foo = &quot;bar&amp;quot;; alert(&amp;quot;Meow!&amp;quot;); var xss=&amp;quot;true&quot;;
         ?&gt;
         var foo = &lt;?= $output ?&gt;;
     &lt;/script&gt;
@@ -317,14 +317,13 @@ $output = json_encode($input);
 &lt;body&gt;
     &lt;p&gt;json_encode() is not good for escaping javascript!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>The above example will show an alert popup box as soon as the page is loaded,
 because the data is not properly escaped for the Javascript context.</p>
 <h2 id="example-of-good-javascript-escaping">Example of Good Javascript Escaping</h2>
 <p>By using the <code>escapeJs()</code> method in the Javascript context, such attacks can be
 prevented:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -334,11 +333,11 @@ INPUT;
 $escaper = new Zend\Escaper\Escaper('utf-8');
 $output = $escaper-&gt;escapeJs($input);
 ?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;
     &lt;title&gt;Escaped Entities&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
-    &lt;script type="text/javascript"&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
         &lt;?php
         // this will look like
         // var foo =
@@ -350,8 +349,7 @@ bar\x26quot\x3B\x3B\x20alert\x28\x26quot\x3BMeow\x21\x26quot\x3B\x29\x3B\x20var\
 &lt;body&gt;
     &lt;p&gt;Zend\Escaper\Escaper::escapeJs() is good for escaping javascript!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>In the above example, the Javascript parser will most likely report a
 <code>SyntaxError</code>, but at least the targeted application remains safe from such
 attacks.</p>
@@ -388,7 +386,7 @@ attacks.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/escaping-javascript.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/escaping-javascript.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

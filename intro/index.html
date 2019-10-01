@@ -253,10 +253,6 @@
             <ul class="toc__list">
                 
                     <li class="toc__entry">
-                        <a href="#security" class="toc__link">Security</a>
-                    </li>
-                
-                    <li class="toc__entry">
                         <a href="#overview" class="toc__link">Overview</a>
                     </li>
                 
@@ -279,13 +275,12 @@ escape output and defend from XSS and related vulnerabilities by introducing
 <strong>contextual escaping based on peer-reviewed rules</strong>.</p>
 <p>zend-escaper was written with ease of use in mind, so it can be used completely stand-alone from
 the rest of the framework, and as such can be installed with Composer:</p>
-<pre class="codehilite"><code class="language-bash">$ composer require zendframework/zend-escaper</code></pre>
-
+<p> <pre class=codehilite><code class=language-bash>$ composer require zendframework/zend-escaper</code></pre></p>
 <p>Several Zend Framework components provide integrations for consuming
 zend-escaper, including <a href="https://github.com/zendframework/zend-view">zend-view</a>,
 which provides a set of helpers that consume it.</p>
 <blockquote>
-<h3 id="security">Security</h3>
+<h3>Security</h3>
 <p>zend-escaper is a security related component. As such, if you believe you have
 found an issue, we ask that you follow our <a href="http://framework.zend.com/security/">Security  Policy</a>
 and report security issues accordingly. The Zend Framework team and the
@@ -344,7 +339,7 @@ such should not be misused for <em>filtering input data</em>. For such tasks, us
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/intro.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/intro.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

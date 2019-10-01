@@ -281,7 +281,7 @@ excludes only basic alphanumeric characters and escapes all other characters
 into valid CSS hexadecimal escapes.</p>
 <h2 id="example-of-bad-css-escaping">Example of Bad CSS Escaping</h2>
 <p>In most cases developers forget to escape CSS completely:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -290,10 +290,10 @@ body {
 }
 INPUT;
 ?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;
     &lt;title&gt;Unescaped CSS&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
     &lt;style&gt;
     &lt;?= $input ?&gt;
     &lt;/style&gt;
@@ -301,13 +301,12 @@ INPUT;
 &lt;body&gt;
     &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>In the above example, by failing to escape the user provided CSS, an attacker
 can execute an XSS attack fairly easily.</p>
 <h2 id="example-of-good-css-escaping">Example of Good CSS Escaping</h2>
 <p>By using <code>escapeCss()</code> method in the CSS context, such attacks can be prevented:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -319,10 +318,10 @@ INPUT;
 $escaper = new Zend\Escaper\Escaper('utf-8');
 $output = $escaper-&gt;escapeCss($input);
 ?&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;
     &lt;title&gt;Escaped CSS&lt;/title&gt;
-    &lt;meta charset="UTF-8"/&gt;
+    &lt;meta charset=&quot;UTF-8&quot;/&gt;
     &lt;style&gt;
     &lt;?php
     // output will look something like
@@ -334,8 +333,7 @@ $output = $escaper-&gt;escapeCss($input);
 &lt;body&gt;
     &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+&lt;/html&gt;</code></pre></p>
 <p>By properly escaping user controlled CSS, we can prevent XSS attacks in our web
 applications.</p>
 
@@ -371,7 +369,7 @@ applications.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/escaping-css.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/escaping-css.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

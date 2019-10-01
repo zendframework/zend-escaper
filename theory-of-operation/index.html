@@ -294,23 +294,22 @@ the caller.</p>
 own set of rules according to which escaping is performed. An example will allow
 us to clearly demonstrate the difference, and how the same characters are being
 escaped differently between contexts:</p>
-<pre class="codehilite"><code class="language-php">$escaper = new Zend\Escaper\Escaper('utf-8');
+<p> <pre class=codehilite><code class=language-php>$escaper = new Zend\Escaper\Escaper('utf-8');
 
 // &amp;lt;script&amp;gt;alert(&amp;quot;zf2&amp;quot;)&amp;lt;/script&amp;gt;
-echo $escaper-&gt;escapeHtml('&lt;script&gt;alert("zf2")&lt;/script&gt;');
+echo $escaper-&gt;escapeHtml('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
 
 // &amp;lt;script&amp;gt;alert&amp;#x28;&amp;quot;zf2&amp;quot;&amp;#x29;&amp;lt;&amp;#x2F;script&amp;gt;
-echo $escaper-&gt;escapeHtmlAttr('&lt;script&gt;alert("zf2")&lt;/script&gt;');
+echo $escaper-&gt;escapeHtmlAttr('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
 
 // \x3Cscript\x3Ealert\x28\x22zf2\x22\x29\x3C\x2Fscript\x3E
-echo $escaper-&gt;escapeJs('&lt;script&gt;alert("zf2")&lt;/script&gt;');
+echo $escaper-&gt;escapeJs('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
 
 // \3C script\3E alert\28 \22 zf2\22 \29 \3C \2F script\3E
-echo $escaper-&gt;escapeCss('&lt;script&gt;alert("zf2")&lt;/script&gt;');
+echo $escaper-&gt;escapeCss('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');
 
 // %3Cscript%3Ealert%28%22zf2%22%29%3C%2Fscript%3E
-echo $escaper-&gt;escapeUrl('&lt;script&gt;alert("zf2")&lt;/script&gt;');</code></pre>
-
+echo $escaper-&gt;escapeUrl('&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;');</code></pre></p>
 <p>More detailed examples will be given in later chapters.</p>
 <h2 id="the-problem-with-inconsistent-functionality">The Problem with Inconsistent Functionality</h2>
 <p>At present, programmers orient towards the following PHP functions for each
@@ -352,7 +351,7 @@ likely incomplete, home-grown solutions.</p>
 <p>To understand why multiple standardised escaping methods are needed, what
 follows are several quick points; they are by no means a complete set of
 reasons, however!</p>
-<h3 id="html-escaping-of-unquoted-html-attribute-values-still-allows-xss">HTML escaping of unquoted HTML attribute values still allows XSS</h3>
+<h3>HTML escaping of unquoted HTML attribute values still allows XSS</h3>
 <p>This is probably the best known way to defeat <code>htmlspecialchars()</code> when used on
 attribute values, since any space (or character interpreted as a space &mdash;
 there are a lot) lets you inject new attributes whose content can't be
@@ -364,7 +363,7 @@ that need to be carefully monitored since escaping sometimes needs a little
 extra help to protect against XSS &mdash; even if that means ensuring all
 attribute values are properly double quoted despite this not being required for
 valid HTML.</p>
-<h3 id="html-escaping-of-css-javascript-or-uris-is-often-reversed-when-passed-to-non-html-interpreters-by-the-browser">HTML escaping of CSS, Javascript or URIs is often reversed when passed to non-HTML interpreters by the browser</h3>
+<h3>HTML escaping of CSS, Javascript or URIs is often reversed when passed to non-HTML interpreters by the browser</h3>
 <p>HTML escaping is just that &mdash; it's designed to escape a string for HTML
 (i.e. prevent tag or attribute insertion), but not alter the underlying meaning
 of the content, whether it be text, Javascript, CSS, or URIs. For that purpose,
@@ -374,7 +373,7 @@ separate escapers for Javascript, CSS, and URIs, and developers or designers
 writing templates <strong>must</strong> know which escaper to apply to which context. Of
 course, this means you need to be able to identify the correct context before
 selecting the right escaper!</p>
-<h3 id="dom-based-xss-requires-a-defence-using-at-least-two-levels-of-different-escaping-in-many-cases">DOM-based XSS requires a defence using at least two levels of different escaping in many cases</h3>
+<h3>DOM-based XSS requires a defence using at least two levels of different escaping in many cases</h3>
 <p>DOM-based XSS has become increasingly common as Javascript has taken off in
 popularity for large scale client-side coding. A simple example is Javascript
 defined in a template which inserts a new piece of HTML text into the DOM. If
@@ -387,7 +386,7 @@ safe for DOM insertion), and then for Javascript (make it safe for the current
 Javascript context). Nested contexts are a common means of bypassing naive
 escaping habits (e.g. you can inject Javascript into a CSS expression within an
 HTML attribute).</p>
-<h3 id="php-has-no-known-anti-xss-escape-functions-only-those-kidnapped-from-their-original-purposes">PHP has no known anti-XSS escape functions (only those kidnapped from their original purposes)</h3>
+<h3>PHP has no known anti-XSS escape functions (only those kidnapped from their original purposes)</h3>
 <p>A simple example, widely used, is when you see <code>json_encode()</code> used to escape
 Javascript, or worse, some kind of mutant <code>addslashes()</code> implementation. These
 were never designed to eliminate XSS, yet PHP programmers use them as such. For
@@ -431,7 +430,7 @@ a singular reliance on it a questionable practice.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/theory-of-operation.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-escaper/edit/master/docs/book/theory-of-operation.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
