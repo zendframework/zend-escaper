@@ -2,7 +2,7 @@
 
 > ## Repository abandoned 2019-12-31
 >
-> This repository has moved to laminas/laminas-escaper.
+> This repository has moved to [laminas/laminas-escaper](https://github.com/laminas/laminas-escaper).
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-escaper.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-escaper)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-escaper/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-escaper?branch=master)
