@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/intro/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/intro/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/theory-of-operation/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/theory-of-operation/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/configuration/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/configuration/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/escaping-html/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/escaping-html/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/escaping-html-attributes/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/escaping-html-attributes/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/escaping-javascript/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/escaping-javascript/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/escaping-css/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/escaping-css/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://docs.zendframework.com/zend-escaper/escaping-url/</loc>
-     <lastmod>2019-11-04</lastmod>
+     <loc>https://docs.zendframework.com/escaping-url/</loc>
+     <lastmod>2020-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-escaper/escaping-javascript/">
+    <link rel="canonical" href="https://docs.zendframework.com/escaping-javascript/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Escaping Javascript - zend-escaper - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -205,9 +205,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-escaper/">laminas/laminas-escaper.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -293,7 +293,7 @@ misinterpretation of Javascript as HTML leading to the injection of special
 characters and entities.</p>
 <h2 id="example-of-bad-javascript-escaping">Example of Bad Javascript Escaping</h2>
 <p>An example of incorrect Javascript escaping:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<pre><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -317,13 +317,15 @@ $output = json_encode($input);
 &lt;body&gt;
     &lt;p&gt;json_encode() is not good for escaping javascript!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></p>
+&lt;/html&gt;
+</code></pre>
+
 <p>The above example will show an alert popup box as soon as the page is loaded,
 because the data is not properly escaped for the Javascript context.</p>
 <h2 id="example-of-good-javascript-escaping">Example of Good Javascript Escaping</h2>
 <p>By using the <code>escapeJs()</code> method in the Javascript context, such attacks can be
 prevented:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
+<pre><code class="language-php">&lt;?php header('Content-Type: text/html; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -349,7 +351,9 @@ bar\x26quot\x3B\x3B\x20alert\x28\x26quot\x3BMeow\x21\x26quot\x3B\x29\x3B\x20var\
 &lt;body&gt;
     &lt;p&gt;Zend\Escaper\Escaper::escapeJs() is good for escaping javascript!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></p>
+&lt;/html&gt;
+</code></pre>
+
 <p>In the above example, the Javascript parser will most likely report a
 <code>SyntaxError</code>, but at least the targeted application remains safe from such
 attacks.</p>
@@ -524,7 +528,7 @@ attacks.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -532,10 +536,10 @@ attacks.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -543,27 +547,28 @@ attacks.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '..',
             siteName = 'zend-escaper';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

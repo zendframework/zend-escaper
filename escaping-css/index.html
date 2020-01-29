@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-escaper/escaping-css/">
+    <link rel="canonical" href="https://docs.zendframework.com/escaping-css/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Escaping CSS - zend-escaper - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -205,9 +205,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-escaper/">laminas/laminas-escaper.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -281,7 +281,7 @@ excludes only basic alphanumeric characters and escapes all other characters
 into valid CSS hexadecimal escapes.</p>
 <h2 id="example-of-bad-css-escaping">Example of Bad CSS Escaping</h2>
 <p>In most cases developers forget to escape CSS completely:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<pre><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -301,12 +301,14 @@ INPUT;
 &lt;body&gt;
     &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></p>
+&lt;/html&gt;
+</code></pre>
+
 <p>In the above example, by failing to escape the user provided CSS, an attacker
 can execute an XSS attack fairly easily.</p>
 <h2 id="example-of-good-css-escaping">Example of Good CSS Escaping</h2>
 <p>By using <code>escapeCss()</code> method in the CSS context, such attacks can be prevented:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
+<pre><code class="language-php">&lt;?php header('Content-Type: application/xhtml+xml; charset=UTF-8'); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;?php
 $input = &lt;&lt;&lt;INPUT
@@ -333,7 +335,9 @@ $output = $escaper-&gt;escapeCss($input);
 &lt;body&gt;
     &lt;p&gt;User controlled CSS needs to be properly escaped!&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></p>
+&lt;/html&gt;
+</code></pre>
+
 <p>By properly escaping user controlled CSS, we can prevent XSS attacks in our web
 applications.</p>
 
@@ -507,7 +511,7 @@ applications.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -515,10 +519,10 @@ applications.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -526,27 +530,28 @@ applications.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '..',
             siteName = 'zend-escaper';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

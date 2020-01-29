@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-escaper/escaping-html/">
+    <link rel="canonical" href="https://docs.zendframework.com/escaping-html/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Escaping HTML - zend-escaper - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -205,9 +205,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-escaper/">laminas/laminas-escaper.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -283,7 +283,7 @@ encoding.</p>
 <p>For escaping data to use within an HTML body context, use
 <code>Zend\Escaper\Escaper</code>'s <code>escapeHtml()</code> method.  Internally it uses PHP's
 <code>htmlspecialchars()</code>, correctly setting the flags and encoding for you.</p>
-<p> <pre class=codehilite><code class=language-php>// Outputting this without escaping would be a bad idea!
+<pre><code class="language-php">// Outputting this without escaping would be a bad idea!
 $input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 
 $escaper = new Zend\Escaper\Escaper('utf-8');
@@ -291,13 +291,15 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
 // somewhere in an HTML template
 &lt;div class=&quot;user-provided-input&quot;&gt;
     &lt;?= $escaper-&gt;escapeHtml($input) // all safe! ?&gt;
-&lt;/div&gt;</code></pre></p>
+&lt;/div&gt;
+</code></pre>
+
 <p>One thing a developer needs to pay special attention to is the encoding in which
 the document is served to the client, as it <strong>must be the same</strong> as the encoding
 used for escaping!</p>
 <h2 id="example-of-bad-html-escaping">Example of Bad HTML Escaping</h2>
 <p>An example of incorrect usage:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
+<pre><code class="language-php">&lt;?php
 $input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 $escaper = new Zend\Escaper\Escaper('utf-8');
 ?&gt;
@@ -313,10 +315,12 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
     // Bad! The escaper's and the document's encodings are different!
     echo $escaper-&gt;escapeHtml($input);
 ?&gt;
-&lt;/body&gt;</code></pre></p>
+&lt;/body&gt;
+</code></pre>
+
 <h2 id="example-of-good-html-escaping">Example of Good HTML Escaping</h2>
 <p>An example of correct usage:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
+<pre><code class="language-php">&lt;?php
 $input = '&lt;script&gt;alert(&quot;zf2&quot;)&lt;/script&gt;';
 $escaper = new Zend\Escaper\Escaper('utf-8');
 ?&gt;
@@ -332,7 +336,8 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
     // Good! The escaper's and the document's encodings are same!
     echo $escaper-&gt;escapeHtml($input);
 ?&gt;
-&lt;/body&gt;</code></pre></p>
+&lt;/body&gt;
+</code></pre>
 
 
 
@@ -504,7 +509,7 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -512,10 +517,10 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -523,27 +528,28 @@ $escaper = new Zend\Escaper\Escaper('utf-8');
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '..',
             siteName = 'zend-escaper';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
